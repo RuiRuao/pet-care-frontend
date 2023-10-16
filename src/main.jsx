@@ -4,6 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom"
 import Form from "./components/Form.jsx"
+import Details from "./components/Details.jsx"
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,14 @@ const router = createBrowserRouter([
     path:"/new-pet",
     element: <Form />
   },
+  {
+    path:"/",
+    element: <App />
+  },
+  {
+    path:"/details",
+    element: <Details />
+  }
 
 ])
 

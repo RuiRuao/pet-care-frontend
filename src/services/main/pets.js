@@ -27,7 +27,7 @@ export async function getPetById(id) {
     return response.data;
 }
 
-async function createPet(pet) {
+export async function createPet(pet) {
     console.log("Createing pet")
     try {
         const response = await axios.post(urlBuilder(), pet);

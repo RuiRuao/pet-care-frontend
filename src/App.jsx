@@ -50,6 +50,7 @@ function App() {
 
   return (
     <div>
+      <input type="text" placeholder="Pesquise por um bicho" />
       <PetsProvider>
         <PetsList />
       </PetsProvider>

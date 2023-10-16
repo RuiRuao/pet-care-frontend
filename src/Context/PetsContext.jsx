@@ -28,6 +28,6 @@ export function PetsProvider({ children })
       {children}
     </PetsContext.Provider>
   );
-};
+}
 
 export default PetsContext

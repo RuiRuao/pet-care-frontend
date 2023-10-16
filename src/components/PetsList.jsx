@@ -28,7 +28,7 @@ export default function PetsList() {
                             <td>{p.name}</td>
                             <td>{p.dateOfBirth}</td>
                             <td>{p.breed}</td>
-                            <td><button onClick={}>Detalhes</button></td>
+                            <td><button>Detalhes</button></td>
                         </tr>
                     ))}
                 </tbody>
