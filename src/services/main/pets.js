@@ -38,7 +38,7 @@ export async function createPet(pet) {
     }
 }
 
-async function updatePet(pet) {
+export async function updatePet(pet) {
     console.log('Updating pet')
     try {
         const reponse = await axios.put(urlBuilder(pet.id), pet);

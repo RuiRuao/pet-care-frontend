@@ -1,10 +1,18 @@
 import { useContext } from "react";
 import PetsContext from "../Context/PetsContext";
 import { Link } from "react-router-dom"
+import { deletePet } from "../services/main/pets";
 
 
 export default function PetsList() {
     const { pets } = useContext(PetsContext);
+
+
+    function handleDelete(petId)
+    {
+        deletePet(petId)
+        
+    }
 
     return (
         <div>
@@ -28,7 +36,12 @@ export default function PetsList() {
                             <td>{p.name}</td>
                             <td>{p.dateOfBirth}</td>
                             <td>{p.breed}</td>
-                            <td><button>Detalhes</button></td>
+                            <td>
+                                <button><Link to={`/details/${p.id}`}>Detalhes</Link></button>
+                            </td>
+                            <td>
+                                <button onClick={() => handleDelete(p.id)}>Apagar</button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

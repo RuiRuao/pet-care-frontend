@@ -16,11 +16,7 @@ const router = createBrowserRouter([
     element: <Form />
   },
   {
-    path:"/",
-    element: <App />
-  },
-  {
-    path:"/details",
+    path:"/details/:id",
     element: <Details />
   }
 
@@ -28,8 +24,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <createBrowserRouter>
       <RouterProvider router={router}/>
-    </createBrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
