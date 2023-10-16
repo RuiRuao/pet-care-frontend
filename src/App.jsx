@@ -1,9 +1,11 @@
-import { useEffect } from "react"
-import { createOrUpdatePet, deletePet, getAllPets, getPetById } from "./services/main/pets"
+import { useEffect } from "react";
+import { createOrUpdatePet, deletePet, getAllPets, getPetById } from "./services/main/pets";
+import PetsList from "./components/PetsList";
+import { PetsProvider } from "./Context/PetsContext";
 
 function App() {
   useEffect(() => {
-    //Permitir cancelar um pedido ao servidor
+    // Permitir cancelar um pedido ao servidor
     const abortController = new AbortController();
 
     async function test() {
@@ -11,47 +13,48 @@ function App() {
         name: "Bobby",
         dateOfBirth: "2019-01-01",
         breed: "Bulldog",
-      }
+      };
 
-      const petCreated = await createOrUpdatePet(data)
-      
-      console.log(petCreated)
+      const petCreated = await createOrUpdatePet(data);
 
-      const allPets = await getAllPets()
+      console.log(petCreated);
 
-      console.log(allPets)
+      const allPets = await getAllPets();
 
-      petCreated.name = "Fisher"
-      const petUpdated = await createOrUpdatePet(petCreated)
+      console.log(allPets);
 
-      console.log(petUpdated)
+      petCreated.name = "Fisher";
+      const petUpdated = await createOrUpdatePet(petCreated);
 
-      const pet = await getPetById(petUpdated.id)
+      console.log(petUpdated);
 
-      console.log(pet)
+      const pet = await getPetById(petUpdated.id);
 
-      await deletePet(petUpdated.id)
+      console.log(pet);
 
-      const allPetsAfterDelete = await getAllPets()
+      await deletePet(petUpdated.id);
 
-      console.log(allPetsAfterDelete)
+      const allPetsAfterDelete = await getAllPets();
+
+      console.log(allPetsAfterDelete);
 
     }
 
-    test()
+    test();
 
     return () => {
-      //Cancelar o pedido caso o componente seja desmontado
+      // Cancelar o pedido caso o componente seja desmontado
       abortController.abort();
     };
-  }, [])
-
+  }, []);
 
   return (
-    <>
-      <h1>Base project</h1>
-    </>
-  )
+    <div>
+      <PetsProvider>
+        <PetsList />
+      </PetsProvider>
+    </div>
+  );
 }
 
-export default App
+export default App;
